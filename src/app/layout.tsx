@@ -1,7 +1,8 @@
-import type { Metadata } from "next";
-import { DM_Sans, DM_Serif_Display } from "next/font/google";
-import { ConvexClientProvider } from "./ConvexClientProvider";
-import "./globals.css";
+
+import type { Metadata } from 'next';
+import { DM_Sans, DM_Serif_Display } from 'next/font/google';
+import { ConvexClientProvider } from './ConvexClientProvider';
+import './globals.css';
 
 const dmSans = DM_Sans({
   variable: "--font-dm-sans",

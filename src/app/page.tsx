@@ -1,4 +1,7 @@
-import { ScreeningForm } from "@/components/ScreeningForm";
+
+import * as React from 'react';
+import { ScreeningForm } from '@/components/ScreeningForm';
+
 
 export default function HomePage() {
   return (

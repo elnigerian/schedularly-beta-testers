@@ -1,53 +1,3 @@
-# Prompt: HTML to Full-Stack Renter Screening Application
-
-**Role:** You are a Senior Full-Stack Engineer and UX Specialist.
-**Task:** Convert the provided HTML screening form into a production-ready, full-stack application.
-
-## 1. Tech Stack Requirements
-* **Frontend:** React (Next.js 14+ App Router), TypeScript, Tailwind CSS.
-* **UI Components:** Shadcn/UI (using Accordion, Progress, Card, Badge, and Form components).
-* **Backend/Database:** Convex DB (for real-time data syncing and storage).
-* **State Management:** React Hook Form with Zod validation.
-
-## 2. Core Features & Logic
-* **Collapsible Sections:** Implement 6 sections using Shadcn Accordions. Each must contain the logic for the 10 scoring criteria.
-* **Real-Time Scoring:** * Maintain a live `totalScore` state.
-    * **Dynamic Tiering:** Update a badge in real-time:
-        * Tier 1 (High Score)
-        * Tier 2 (Mid Score)
-        * Waitlist (Low Score)
-        * Disqualified (Automatic fail criteria).
-* **Conditional Rendering:** * **Landlord Nomination:** Reveal contact fields ONLY if the applicant toggles "willingness."
-    * **Per-Channel Tips:** Display context-specific "Pro-Tips" for platforms like Reddit, LinkedIn, and Product Hunt within each section.
-* **Progress Tracking:** A sticky progress bar calculating `%` based on required field completion.
-
-## 3. Convex Data Schema (Decomposition)
-Decompose the data model for Convex to support:
-* **`submissions` table:** Stores user responses, metadata, final score, and calculated tier.
-* **`scoringRubric` (Internal):** The scoring values must be handled server-side or via a private constant. **The user must never see the raw point values or the rubric in the frontend code/UI.**
-* **`admin_users`:** To facilitate secure access to the dashboard.
-
-## 4. Admin Dashboard
-Build a protected `/admin` route that allows a reviewer to:
-* View a list of all submissions.
-* Click into a submission to see a detailed breakdown.
-* **Crucial:** The admin view must show the specific points awarded for each answer, which is hidden from the end-user.
-
-## 5. Design & UX Guidelines
-* **Seamless UX:** The transition between sections should be friction-free. Use subtle animations for "reveals."
-* **Responsive & ADA Compliant:** Ensure full accessibility (keyboard navigation, ARIA labels) and a "mobile-first" responsive design.
-* **Friction Reduction:** Identify and correct potential UX bottlenecks (e.g., adding "Save for Later" functionality or clear error handling for missing fields) not explicitly mentioned in the HTML.
-* **Aesthetics:** Clean, professional, and intuitive. Use a modern "SaaS" aesthetic.
-
-## 6. Output Instructions
-1.  Provide the Convex schema (`schema.ts`).
-2.  Provide the internal scoring logic/constants.
-3.  Provide the main Form component and the Admin Dashboard view.
-4.  Explain any UX improvements you added to bridge gaps in the original HTML file.
-
----
-## HTML Code
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -920,4 +870,3 @@ Build a protected `/admin` route that allows a reviewer to:
 </script>
 </body>
 </html>
-`
